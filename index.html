@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 30px;
+            font-family: 'Courier';
+			background-color:#e6dbc9;
+            color: #FF9494;
+        }
+        #valentineQuestion {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+        .answerButton {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px;
+            font-family: 'courier';
+            margin-bottom: 20px;
+            background-color:#fad8d5;
+            color: #e67373;
+            border-radius: 12px;
+            border: 2px solid #FFE3E1;
+        }
+    </style>
+</head>
+<body>
+    <div id="valentineQuestion"><b>Ты будешь моей валентинкой на 14(17) число?</b></div>
+    <button class="answerButton" onclick="location.href='thankyou.html'">Да</button>
+    <button class="answerButton" id="noButton">Неа</button>
+    <br>
+    <img src ='cat.gif' alt = 'cat asking question' class="responsive">
+
+
+    <script>
+        var buttonClickCount = 0;
+        var addedContent = false;
+    
+        document.getElementById('noButton').addEventListener('click', function() {
+            buttonClickCount++; 
+    
+            if (buttonClickCount > 5 && !addedContent) { 
+                var valentineQuestion = document.getElementById('valentineQuestion');
+                valentineQuestion.innerHTML = '<b>Ну, у тебя нет выбора🙄🙄🙄</b>';
+    
+                addedContent = true;
+            }
+    
+            var yesButton = document.querySelector('button[onclick*="thankyou.html"]');
+            var currentFontSize = parseInt(window.getComputedStyle(yesButton).fontSize);
+            yesButton.style.fontSize = (currentFontSize + 10) + 'px'; 
+        });
+    </script>
+    
+    
+</body>
+</html>
